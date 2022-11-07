@@ -18,7 +18,6 @@ default_platform(:ios)
 platform :ios do
   desc "This lane lints the project"
   lane :lint do
-    delete(file: "swiftlint.results.json")
     swiftlint(mode: :lint, 
               config_file: "fastlane/.swiftlint.yml",
               output_file: "swiftlint.results.json",
