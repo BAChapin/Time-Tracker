@@ -142,5 +142,18 @@ Packages
 xcuserdata
 *.xcodeproj
 
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
+### Specific Files ###
+GoogleService-Info.plist
+swiftlint.results.json
+
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,swiftpackagemanager,fastlane,macos
