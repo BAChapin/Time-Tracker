@@ -18,10 +18,24 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct TimeTrackerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var environemt: TimeEnvironment = TimeEnvironment()
 
     var body: some Scene {
         WindowGroup {
-            LoginScreen()
+            if environemt.isUserSignedIn {
+                VStack {
+                    Text("You're logged in!")
+                    
+                    Button("Sign Out") {
+                        environemt.signOut()
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            } else {
+                LoginScreen()
+                    .environmentObject(environemt)
+            }
+                
         }
     }
 }
