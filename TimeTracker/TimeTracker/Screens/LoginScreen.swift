@@ -9,9 +9,8 @@ import SwiftUI
 
 struct LoginScreen: View {
     
+    @EnvironmentObject var environment: TimeEnvironment
     @ObservedObject var viewModel = LoginViewModel()
-    @State var email = ""
-    @State var password = ""
     
     var body: some View {
         VStack(spacing: 15) {
@@ -26,12 +25,12 @@ struct LoginScreen: View {
                 .font(.caption)
                 .foregroundColor(.red)
             
-            TextField("UsernameLabel", text: $email, prompt: Text("Username"))
+            TextField("UsernameLabel", text: $viewModel.email, prompt: Text("Username"))
                 .textContentType(.emailAddress)
                 .keyboardType(.emailAddress)
                 .roundedBorder(height: 45)
             
-            SecureField("PasswordLabel", text: $password, prompt: Text("Password"))
+            SecureField("PasswordLabel", text: $viewModel.password, prompt: Text("Password"))
                 .roundedBorder(height: 45)
             
             HStack {
@@ -46,7 +45,7 @@ struct LoginScreen: View {
             
             HStack {
                 Button {
-                    print("Create Account Tapped")
+                    viewModel.displayCreateAccount.toggle()
                 } label: {
                     Text("Create Account")
                         .frame(maxWidth: .infinity)
@@ -56,7 +55,10 @@ struct LoginScreen: View {
                 
                 Button {
                     Task {
-                        await viewModel.signIn(email, password: password)
+                        viewModel.error = nil
+                        await environment.signIn(viewModel.email, password: viewModel.password, { error in
+                            viewModel.error = error
+                        })
                     }
                 } label: {
                     Text("Login")
@@ -72,6 +74,11 @@ struct LoginScreen: View {
         }
         .padding(.horizontal)
         .ignoresSafeArea()
+        .sheet(isPresented: $viewModel.displayCreateAccount, onDismiss: {
+            viewModel.error = nil
+        }, content: {
+            CreateAccountScreen().environmentObject(environment)
+        })
     }
 }
 
