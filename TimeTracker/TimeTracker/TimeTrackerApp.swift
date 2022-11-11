@@ -21,7 +21,7 @@ struct TimeTrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainScreen()
+            LoginScreen()
         }
     }
 }
