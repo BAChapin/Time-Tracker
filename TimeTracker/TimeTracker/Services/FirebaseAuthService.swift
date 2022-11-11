@@ -13,6 +13,10 @@ import FirebaseFirestore
 enum AuthError: Error {
     case noUser
     case incorrentInformation
+    case invalidEmail
+    case passwordMismatch
+    case weakPassword
+    case emailAlreadyUsed
     case unknown
 }
 
@@ -36,6 +40,41 @@ class FirebaseAuthService {
             }
         } catch {
             return .failure(.unknown)
+        }
+    }
+    
+    @MainActor
+    func createAccount(with emailAddress: String, password: String) async -> Result<String, AuthError> {
+        do {
+            let authData = try await Auth.auth().createUser(withEmail: emailAddress, password: password)
+            return .success(authData.user.uid)
+        } catch (let error as AuthErrorCode) {
+            switch error.code {
+            case .invalidEmail:
+                return .failure(.invalidEmail)
+            case .emailAlreadyInUse:
+                return .failure(.emailAlreadyUsed)
+            case .weakPassword:
+                return .failure(.weakPassword)
+            default:
+                return .failure(.unknown)
+            }
+        } catch {
+            return .failure(.unknown)
+        }
+    }
+    
+    func getCurrentUserId() -> String? {
+        let user = Auth.auth().currentUser
+        return user?.uid
+    }
+    
+    func signOut() throws {
+        let firAuth = Auth.auth()
+        do {
+            try firAuth.signOut()
+        } catch {
+            throw AuthError.unknown
         }
     }
     
