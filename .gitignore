@@ -10,20 +10,20 @@
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 # fastlane specific
-fastlane/report.xml
+TimeTracker/fastlane/report.xml
 
 # deliver temporary files
-fastlane/Preview.html
+TimeTracker/fastlane/Preview.html
 
 # snapshot generated screenshots
-fastlane/screenshots/**/*.png
-fastlane/screenshots/screenshots.html
+TimeTracker/fastlane/screenshots/**/*.png
+TimeTracker/fastlane/screenshots/screenshots.html
 
 # scan temporary files
-fastlane/test_output
+TimeTracker/fastlane/test_output
 
 # Fastlane.swift runner binary
-fastlane/FastlaneRunner
+TimeTracker/fastlane/FastlaneRunner
 
 ### macOS ###
 # General
