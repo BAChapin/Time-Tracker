@@ -10,7 +10,7 @@ import SwiftUI
 extension View {
     
     func roundedBorder(height: CGFloat = 40, lineWidth: CGFloat = 1, paddingInset: CGFloat = 10) -> some View {
-        self.modifier(RoundedBorder(height: height, lineWidth: lineWidth, paddingInset: paddingInset))
+        self.modifier(RoundedBorderModifier(height: height, lineWidth: lineWidth, paddingInset: paddingInset))
     }
     
 }

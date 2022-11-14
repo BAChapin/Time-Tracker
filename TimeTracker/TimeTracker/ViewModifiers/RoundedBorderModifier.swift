@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RoundedBorder: ViewModifier {
+struct RoundedBorderModifier: ViewModifier {
     var height: CGFloat
     var lineWidth: CGFloat
     var paddingInset: CGFloat
