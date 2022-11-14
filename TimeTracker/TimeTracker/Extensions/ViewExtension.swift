@@ -13,4 +13,18 @@ extension View {
         self.modifier(RoundedBorderModifier(height: height, lineWidth: lineWidth, paddingInset: paddingInset))
     }
     
+    func mainNavBarAccessories(title: String = "Time Tracker",
+                               showAddButton: Bool = true,
+                               showSettingsButton: Bool = true,
+                               addTaskAction: @escaping () -> Void,
+                               addTimerAction: @escaping () -> Void,
+                               settingsAction: @escaping () -> Void) -> some View {
+        self.modifier(MainModifier(title: title,
+                                   showAddButton: showAddButton,
+                                   showSettingsButton: showSettingsButton,
+                                   addTaskAction: addTaskAction,
+                                   addTimerAction: addTimerAction,
+                                   settingsAction: settingsAction))
+    }
+    
 }
