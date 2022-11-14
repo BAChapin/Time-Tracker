@@ -56,9 +56,9 @@ struct LoginScreen: View {
                 Button {
                     Task {
                         viewModel.error = nil
-                        await environment.signIn(viewModel.email, password: viewModel.password, { error in
+                        await environment.signIn(viewModel.email, password: viewModel.password) { error in
                             viewModel.error = error
-                        })
+                        }
                     }
                 } label: {
                     Text("Login")
