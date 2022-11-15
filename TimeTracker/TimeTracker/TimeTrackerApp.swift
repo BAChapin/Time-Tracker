@@ -23,14 +23,8 @@ struct TimeTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             if environemt.isUserSignedIn {
-                VStack {
-                    Text("You're logged in!")
-                    
-                    Button("Sign Out") {
-                        environemt.signOut()
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
+                MainScreen()
+                    .environmentObject(environemt)
             } else {
                 LoginScreen()
                     .environmentObject(environemt)
