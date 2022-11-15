@@ -14,7 +14,7 @@ struct LoginScreen: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Image(systemName: "clock.badge.checkmark.fill")
+            Image(systemName: "timer")
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(.green, .black)
                 .font(.system(size: 150))
