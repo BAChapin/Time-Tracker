@@ -8,7 +8,9 @@
 import SwiftUI
 
 class MainViewModel: ObservableObject {
+    
     @Published var tasks: [TimerTask] = []
+    @Published var displayAddTaskSheet: Bool = false
     private let service = FirebaseFirestoreService()
     
     func add(_ task: TimerTask) {

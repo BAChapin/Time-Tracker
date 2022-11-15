@@ -16,87 +16,36 @@ struct MainScreen: View {
         NavigationStack {
             if viewModel.tasks.isEmpty {
                 NoTasksView()
-                    .navigationTitle("Time Tracker")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button {
-                                print("Settings Tapped")
-                            } label: {
-                                Label("Settings", systemImage: "gear")
-                            }
-                        }
-                        
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Menu {
-                                Button("Add Task") {
-                                    let newTask = TimerTask(userId: environment.userId!, name: "\(Int.random(in: 0..<1000))")
-                                    viewModel.add(newTask)
-                                    print("Add Task Tapped")
-                                }
-                                Button("Add Timer") {
-                                    print("Add Timer Tapped")
-                                }
-                            } label: {
-                                Label("Add", systemImage: "plus")
-                            }
-                        }
-                    }
+                    .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             } else {
-                List() {
-                    ForEach(viewModel.tasks, id: \.id) { task in
-                        render(task: task)
-                            .listRowSeparator(.hidden)
-                    }
-                }
-                .listStyle(.plain)
-                .navigationTitle("Time Tracker")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            print("Settings Tapped")
-                        } label: {
-                            Label("Settings", systemImage: "gear")
-                        }
-                    }
-                    
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Menu {
-                            Button("Add Task") {
-                                let newTask = TimerTask(userId: environment.userId!, name: "\(Int.random(in: 0..<1000))")
-                                viewModel.add(newTask)
-                                print("Add Task Tapped")
-                            }
-                            Button("Add Timer") {
-                                print("Add Timer Tapped")
-                            }
-                        } label: {
-                            Label("Add", systemImage: "plus")
-                        }
-                    }
-                }
+                TaskListView(tasks: $viewModel.tasks)
+                    .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             }
-            
+
         }
         .ignoresSafeArea()
         .onAppear {
             viewModel.fetchTasks(for: environment.userId!)
         }
+        .sheet(isPresented: $viewModel.displayAddTaskSheet) {
+            AddTaskScreen(userId: environment.userId!) { task in
+                viewModel.add(task)
+                viewModel.displayAddTaskSheet.toggle()
+            }
+            .presentationDetents([.medium])
+        }
     }
     
-    func render(task: TimerTask) -> some View {
-        HStack {
-            Text(task.name)
-                .padding(.leading)
-            Spacer()
-            Image(systemName: "chevron.right")
-                .padding(.trailing)
-        }
-        .padding(.vertical)
-        .background(Color.blue.opacity(0.2))
-        .cornerRadius(8)
-        .onTapGesture {
-            print(task.created)
-        }
+    func addTask() {
+        viewModel.displayAddTaskSheet.toggle()
+    }
+    
+    func addTimer() {
+        print("Add Timer Tapped")
+    }
+    
+    func showSettings() {
+        print("Settings Tapped")
     }
 }
 

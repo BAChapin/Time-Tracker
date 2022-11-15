@@ -10,7 +10,21 @@ import SwiftUI
 extension View {
     
     func roundedBorder(height: CGFloat = 40, lineWidth: CGFloat = 1, paddingInset: CGFloat = 10) -> some View {
-        self.modifier(RoundedBorder(height: height, lineWidth: lineWidth, paddingInset: paddingInset))
+        self.modifier(RoundedBorderModifier(height: height, lineWidth: lineWidth, paddingInset: paddingInset))
+    }
+    
+    func mainNavBarAccessories(title: String = "Time Tracker",
+                               showAddButton: Bool = true,
+                               showSettingsButton: Bool = true,
+                               addTaskAction: @escaping () -> Void,
+                               addTimerAction: @escaping () -> Void,
+                               settingsAction: @escaping () -> Void) -> some View {
+        self.modifier(MainModifier(title: title,
+                                   showAddButton: showAddButton,
+                                   showSettingsButton: showSettingsButton,
+                                   addTaskAction: addTaskAction,
+                                   addTimerAction: addTimerAction,
+                                   settingsAction: settingsAction))
     }
     
 }

@@ -41,6 +41,7 @@ class FirebaseFirestoreService {
         if taskListener == nil {
             taskListener = db.collection(Collection.task.path)
                 .whereField("userId", isEqualTo: userId)
+                .order(by: "created")
                 .addSnapshotListener({ (querySnapshot, error) in
                 
                     guard let documents = querySnapshot?.documents else {
