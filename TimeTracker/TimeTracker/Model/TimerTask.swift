@@ -13,5 +13,6 @@ struct TimerTask: Codable, Hashable {
     let userId: String
     var created: Date = Date()
     var name: String
+    var timeGoal: Double?
     
 }
