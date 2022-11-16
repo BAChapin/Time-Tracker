@@ -17,9 +17,15 @@ struct MainScreen: View {
             if viewModel.tasks.isEmpty {
                 NoTasksView()
                     .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
+                    .navigationDestination(isPresented: $viewModel.navigateToSettings) {
+                        SettingsScreen().environmentObject(environment)
+                    }
             } else {
                 TaskListView(tasks: $viewModel.tasks)
                     .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
+                    .navigationDestination(isPresented: $viewModel.navigateToSettings) {
+                        SettingsScreen().environmentObject(environment)
+                    }
             }
 
         }
@@ -45,7 +51,7 @@ struct MainScreen: View {
     }
     
     func showSettings() {
-        print("Settings Tapped")
+        viewModel.navigateToSettings.toggle()
     }
 }
 
