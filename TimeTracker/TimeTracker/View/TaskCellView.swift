@@ -9,19 +9,24 @@ import SwiftUI
 
 struct TaskCellView: View {
     
-    @Binding var task: TimerTask
+    @Binding var task: TaskObject
+    var action: (TaskObject) -> Void
     
     var body: some View {
-        HStack {
-            Text(task.name)
-                .padding(.leading)
-            Spacer()
-            Image(systemName: "chevron.right")
-                .padding(.trailing)
+        Button {
+            action(task)
+        } label: {
+            HStack {
+                Text(task.name)
+                    .font(.caption)
+                    .padding(.leading)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .padding(.trailing)
+            }
         }
-        .listRowSeparator(.hidden)
         .padding(.vertical)
-        .background(Color.blue.opacity(0.3))
+        .background(task.isActive ? Color.blue.opacity(0.3) : Color.gray.opacity(0.3))
         .cornerRadius(10)
     }
 }

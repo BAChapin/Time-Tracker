@@ -10,7 +10,7 @@ import SwiftUI
 struct AddTaskScreen: View {
     
     var userId: String
-    var uploadTask: (TimerTask) -> Void
+    var uploadTask: (TaskObject) -> Void
     @State var name: String = ""
     @State var goal: String = ""
     
@@ -49,7 +49,7 @@ struct AddTaskScreen: View {
                 Spacer()
                 
                 Button {
-                    let task = TimerTask(userId: self.userId, name: self.name, timeGoal: Double(self.goal))
+                    let task = TaskObject(userId: self.userId, name: self.name, timeGoal: Double(self.goal))
                     uploadTask(task)
                 } label: {
                     Text("Upload")
