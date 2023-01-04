@@ -87,34 +87,16 @@ class FirebaseFirestoreService {
     
     @MainActor
     public func fetchWeeksTimers(for taskId: String) async -> Result<[TimeObject], FirestoreError> {
-        let sow = Date().startOfWeek.timeIntervalSince1970
         do {
             let snapshot = try await db.collection(Collection.timer.path)
                 .whereField("taskId", isEqualTo: taskId)
-                .whereField("date", isGreaterThanOrEqualTo: sow)
+                .order(by: "date", descending: true)
+                .limit(to: 8)
                 .getDocuments()
             let timers = snapshot.documents.compactMap { document in
                 return try? document.data(as: TimeObject.self)
             }
             return .success(timers)
-        } catch ( _) {
-            return .failure(.unknown)
-        }
-    }
-    
-    @MainActor
-    public func fetchActiveTimer(for taskId: String) async -> Result<TimeObject, FirestoreError> {
-        do {
-            let snapshot = try await db.collection(Collection.timer.path)
-                .whereField("taskId", isEqualTo: taskId)
-                .order(by: "date")
-                .limit(to: 1)
-                .getDocuments()
-            let timers = snapshot.documents.compactMap { document in
-                return try? document.data(as: TimeObject.self)
-            }
-            guard let timer = timers.first else { return .failure(.noEntries) }
-            return .success(timer)
         } catch ( _) {
             return .failure(.unknown)
         }

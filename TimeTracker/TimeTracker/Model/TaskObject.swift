@@ -15,7 +15,6 @@ struct TaskObject: Codable, Hashable, Identifiable {
     var created: Date = Date()
     var name: String
     var timeGoal: Double?
-    var hasActiveTimer: Bool?
     var timers: [TimeObject] = []
     
     var weekProgress: TimeInterval {
@@ -30,7 +29,7 @@ struct TaskObject: Codable, Hashable, Identifiable {
         return 0
     }
     var isActive: Bool {
-        return hasActiveTimer ?? false
+        return activeTimer != nil
     }
     var activeTimer: TimeObject? {
         return timers.first(where: { $0.isActive })
@@ -45,38 +44,22 @@ struct TaskObject: Codable, Hashable, Identifiable {
         case created
         case name
         case timeGoal
-        case hasActiveTimer
     }
     
     mutating func fetchTimers() async {
         do {
-            await self.fetchWeeksTimers()
-            if self.timers.isEmpty && self.isActive {
-                await self.fetchActiveTimer()
-            }
-        }
-    }
-    
-    private mutating func fetchWeeksTimers() async {
-        do {
+            let sow = Date().startOfWeek.timeIntervalSince1970
             let service = FirebaseFirestoreService()
             let timers = await service.fetchWeeksTimers(for: self.id!)
             switch timers {
             case .success(let timers):
-                self.timers = timers
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    private mutating func fetchActiveTimer() async {
-        do {
-            let service = FirebaseFirestoreService()
-            let timer = await service.fetchActiveTimer(for: self.id!)
-            switch timer {
-            case .success(let timer):
-                self.timers = [timer]
+                let weeksTimers = timers.filter { $0.date >= sow }
+                if weeksTimers.count > 0 {
+                    self.timers = weeksTimers
+                } else {
+                    let activeTimers = timers.filter { $0.isActive }
+                    self.timers = activeTimers
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -88,7 +71,6 @@ struct TaskObject: Codable, Hashable, Identifiable {
             let index = timers.firstIndex(of: activeTimer)
             timers[index!].stop()
         }
-        self.setTimer(active: false)
     }
     
     mutating func start() {
@@ -100,13 +82,6 @@ struct TaskObject: Codable, Hashable, Identifiable {
             timer.updateFirebase()
             self.timers.append(timer)
         }
-        self.setTimer()
-    }
-    
-    private mutating func setTimer(active: Bool = true) {
-        self.hasActiveTimer = active
-        let service = FirebaseFirestoreService()
-        service.update(task: self)
     }
     
 }
