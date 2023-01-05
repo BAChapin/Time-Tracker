@@ -9,13 +9,17 @@ import SwiftUI
 
 struct TaskListView: View {
     
-    @Binding var tasks: [TimerTask]
+    @StateObject var viewModel: MainViewModel
     
     var body: some View {
-        List() {
-            ForEach($tasks, id: \.id) { task in
-                TaskCellView(task: task)
+        List($viewModel.tasks) { task in
+            TaskCellView(task: task) { task in
+                viewModel.navigateTo(task: task)
             }
+            .listRowSeparator(.hidden)
+        }
+        .navigationDestination(for: Int.self) { i in
+            TaskScreen(task: $viewModel.tasks[i])
         }
         .listStyle(.plain)
     }

@@ -13,19 +13,21 @@ struct MainScreen: View {
     @ObservedObject var viewModel = MainViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $viewModel.navPath) {
             if viewModel.tasks.isEmpty {
                 NoTasksView()
                     .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             } else {
-                TaskListView(tasks: $viewModel.tasks)
+                TaskListView(viewModel: viewModel)
                     .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             }
 
         }
         .ignoresSafeArea()
         .onAppear {
-            viewModel.fetchTasks(for: environment.userId!)
+            Task {
+                await viewModel.fetchTasks(for: environment.userId!)
+            }
         }
         .sheet(isPresented: $viewModel.displayAddTaskSheet) {
             AddTaskScreen(userId: environment.userId!) { task in
