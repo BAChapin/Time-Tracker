@@ -16,7 +16,8 @@ struct SemiCircleProgressView: View {
     
     private var percentage: Double {
         if goal > 1 {
-            return progress / goal
+            let perc = progress / goal
+            return perc > 1 ? 1.0 : perc
         } else {
             return progress > 0 ? 1 : 0
         }
