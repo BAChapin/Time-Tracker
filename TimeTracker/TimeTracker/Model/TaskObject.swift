@@ -46,6 +46,15 @@ struct TaskObject: Codable, Hashable, Identifiable {
         case timeGoal
     }
     
+    init(id: String? = UUID().uuidString, userId: String, created: Date = Date(), name: String, timeGoal: Double? = nil, timers: [TimeObject] = []) {
+        self.id = id
+        self.userId = userId
+        self.created = created
+        self.name = name
+        self.timeGoal = timeGoal
+        self.timers = timers
+    }
+    
     mutating func fetchTimers() async {
         do {
             let sow = Date().startOfWeek.timeIntervalSince1970

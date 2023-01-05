@@ -32,7 +32,8 @@ class FirebaseFirestoreService {
     
     public func add(task: TaskObject) {
         do {
-            try db.collection(Collection.task.path).document().setData(from: task)
+            let refId = task.id ?? UUID().uuidString
+            try db.collection(Collection.task.path).document(refId).setData(from: task)
         } catch (let error) {
             // TODO: Add proper error handling
             print(error.localizedDescription)
@@ -50,11 +51,8 @@ class FirebaseFirestoreService {
     
     public func add(timer: TimeObject) {
         do {
-            if let timerId = timer.id {
-                try db.collection(Collection.timer.path).document(timerId).setData(from: timer)
-            } else {
-                try db.collection(Collection.timer.path).document().setData(from: timer)
-            }
+            let timerId = timer.id ?? UUID().uuidString
+            try db.collection(Collection.timer.path).document(timerId).setData(from: timer)
         } catch (let error) {
             // TODO: Add proper error handling
             print(error.localizedDescription)

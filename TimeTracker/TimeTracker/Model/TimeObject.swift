@@ -16,6 +16,7 @@ struct TimeObject: Codable, Hashable, Identifiable {
     var entries: [TimeEntry]
     
     init(taskId: String, date: Date = Date()) {
+        self.id = UUID().uuidString
         self.taskId = taskId
         self.date = date.startOfDay.timeIntervalSince1970
         let entry = TimeEntry(startTime: date.timeIntervalSince1970)
