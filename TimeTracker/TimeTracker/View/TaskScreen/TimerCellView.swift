@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TimerCellView: View {
     
     let timer: TimeObject
+    @Binding var cycler: Publishers.Autoconnect<Timer.TimerPublisher>
+    @State var elapsedTime = ""
     
     var body: some View {
         HStack {
@@ -17,7 +20,15 @@ struct TimerCellView: View {
             
             Spacer()
             
-            Text(timer.totalTime.simpleFormat())
+            Text(elapsedTime)
+        }
+        .onAppear {
+            elapsedTime = timer.totalTime.simpleFormat()
+        }
+        .onReceive(cycler) { _ in
+            if timer.isActive {
+                elapsedTime = timer.totalTime.simpleFormat()
+            }
         }
     }
     
@@ -28,10 +39,4 @@ struct TimerCellView: View {
         return formatter.string(from: Date(timeIntervalSince1970: timer.date))
     }
     
-}
-
-struct TimerCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerCellView(timer: TimeObject.testTimer)
-    }
 }

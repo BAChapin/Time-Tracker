@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 enum StatType: String {
     case today = "Today"
@@ -23,6 +24,7 @@ struct GoalProgressView: View {
     
     @Binding var task: TaskObject
     @State var currentTab: StatType = .today
+    @Binding var cycler: Publishers.Autoconnect<Timer.TimerPublisher>
     
     var progress: TimeInterval {
         return task.weekProgress.inHours
@@ -64,5 +66,8 @@ struct GoalProgressView: View {
         .padding(.vertical, 15)
         .background(.gray.opacity(0.1))
         .frame(maxWidth: .infinity)
+        .onReceive(cycler) { _ in
+            task = task
+        }
     }
 }

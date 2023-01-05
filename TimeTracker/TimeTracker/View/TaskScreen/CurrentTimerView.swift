@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CurrentTimerView: View {
     
     var timer: TimeObject
-    var cycler = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    @Binding var cycler: Publishers.Autoconnect<Timer.TimerPublisher>
     @State var time: String = ""
     
     var body: some View {
@@ -33,9 +34,6 @@ struct CurrentTimerView: View {
         .onAppear(perform: {
             time = timeString()
         })
-        .onDisappear {
-            cycler.upstream.connect().cancel()
-        }
     }
     
     private func timeString() -> String {

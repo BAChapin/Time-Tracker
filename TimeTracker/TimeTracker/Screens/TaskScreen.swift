@@ -10,18 +10,19 @@ import SwiftUI
 struct TaskScreen: View {
     
     @Binding var task: TaskObject
+    @State var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
             if let timer = task.activeTimer {
-                CurrentTimerView(timer: timer)
+                CurrentTimerView(timer: timer, cycler: $timer)
             }
             
-            GoalProgressView(task: $task)
+            GoalProgressView(task: $task, cycler: $timer)
             
             List {
                 ForEach(task.timers) { timer in
-                    TimerCellView(timer: timer)
+                    TimerCellView(timer: timer, cycler: $timer)
                 }
             }
             .listStyle(.plain)
@@ -36,6 +37,9 @@ struct TaskScreen: View {
             }
         }
         .padding(.top)
+        .onDisappear {
+            timer.upstream.connect().cancel()
+        }
     }
     
     func toggleTimer() {
