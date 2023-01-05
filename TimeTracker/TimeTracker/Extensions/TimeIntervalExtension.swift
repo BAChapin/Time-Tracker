@@ -9,6 +9,10 @@ import Foundation
 
 extension TimeInterval {
     
+    static var secondsInDay: TimeInterval {
+        return 86400
+    }
+    
     var inMinutes: Double {
         return self > 0 ? self / 60 : 0
     }

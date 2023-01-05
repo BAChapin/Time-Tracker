@@ -19,7 +19,12 @@ struct TimeEntry: Codable, Hashable {
         return endTime == nil
     }
     
-    mutating func stop() {
-        endTime = Date().timeIntervalSince1970
+    mutating func stop(at currentTime: TimeInterval) {
+        let startDate = Date(timeIntervalSince1970: startTime).startOfDay
+        if startDate.isInDate(currentTime) {
+            endTime = currentTime
+        } else {
+            endTime = startDate.endOfDay.timeIntervalSince1970
+        }
     }
 }

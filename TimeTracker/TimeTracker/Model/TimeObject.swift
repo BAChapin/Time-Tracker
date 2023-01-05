@@ -17,8 +17,8 @@ struct TimeObject: Codable, Hashable, Identifiable {
     
     init(taskId: String, date: Date = Date()) {
         self.taskId = taskId
-        self.date = date.timeIntervalSince1970
-        let entry = TimeEntry(startTime: self.date)
+        self.date = date.startOfDay.timeIntervalSince1970
+        let entry = TimeEntry(startTime: date.timeIntervalSince1970)
         self.entries = [entry]
     }
     
@@ -36,12 +36,15 @@ struct TimeObject: Codable, Hashable, Identifiable {
         return entries.first(where: { $0.isActive })
     }
     
-    mutating func stop() {
+    mutating func stop(at currentTime: Date = Date(), _ quietly: Bool = false) {
         if let activeEntry {
             let index = entries.firstIndex(of: activeEntry)
-            entries[index!].stop()
+            let currentTime = currentTime.timeIntervalSince1970
+            entries[index!].stop(at: currentTime)
         }
-        updateFirebase()
+        if !quietly {
+            updateFirebase()
+        }
     }
     
     mutating func start() {
@@ -59,4 +62,15 @@ struct TimeObject: Codable, Hashable, Identifiable {
 
 extension TimeObject {
     static var testTimer: TimeObject = .init(taskId: "Test ID", date: Date.startOfDay())
+    
+    static func generateTimers(from d1: Date = Date(), to d2: Date, for taskId: String) -> [TimeObject] {
+        var returnTimers: [TimeObject] = []
+        let range = Date.dateRange(from: d1, to: d2)
+        for date in range {
+            var newTimer = TimeObject(taskId: taskId, date: date)
+            newTimer.stop(at: d2, true)
+            returnTimers.append(newTimer)
+        }
+        return returnTimers
+    }
 }

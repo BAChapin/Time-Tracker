@@ -68,8 +68,14 @@ struct TaskObject: Codable, Hashable, Identifiable {
     
     mutating func stop() {
         if let activeTimer {
+            let currentTime = Date()
             let index = timers.firstIndex(of: activeTimer)
-            timers[index!].stop()
+            timers[index!].stop(at: currentTime, true)
+            let nextDate = Date(timeIntervalSince1970: timers[index!].date).startOfNextDay
+            let newTimers = TimeObject.generateTimers(from: nextDate, to: currentTime, for: self.id!)
+            let service = FirebaseFirestoreService()
+            service.add(timers: [timers[index!]] + newTimers)
+            self.timers.append(contentsOf: newTimers)
         }
     }
     

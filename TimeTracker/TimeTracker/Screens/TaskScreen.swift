@@ -36,9 +36,6 @@ struct TaskScreen: View {
             }
         }
         .padding(.top)
-        .onAppear {
-            print(task)
-        }
     }
     
     func toggleTimer() {

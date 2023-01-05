@@ -34,7 +34,6 @@ struct CurrentTimerView: View {
             time = timeString()
         })
         .onDisappear {
-            print("CurrentTimerView disappearring")
             cycler.upstream.connect().cancel()
         }
     }

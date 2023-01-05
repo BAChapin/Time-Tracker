@@ -62,6 +62,24 @@ class FirebaseFirestoreService {
         
     }
     
+    public func add(timers: [TimeObject]) {
+        do {
+            let batch = db.batch()
+            
+            for timer in timers {
+                var ref = db.collection(Collection.timer.path).document()
+                if let id = timer.id {
+                    ref = db.collection(Collection.timer.path).document(id)
+                }
+                try batch.setData(from: timer, forDocument: ref)
+            }
+            
+            batch.commit()
+        } catch (let err) {
+            print(err.localizedDescription)
+        }
+    }
+    
     public func fetchTasks(for userId: String, _ taskHandler: @escaping (DocumentChangeType, TaskObject) -> Void) {
         if taskListener == nil {
             taskListener = db.collection(Collection.task.path)
