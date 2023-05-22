@@ -19,7 +19,7 @@ struct MainScreen: View {
                     .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             } else {
                 TaskListView(viewModel: viewModel)
-                    .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
+                    .mainNavBarAccessories(showAddTimerOption: !viewModel.tasks.isEmpty, addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             }
 
         }
@@ -43,7 +43,9 @@ struct MainScreen: View {
     }
     
     func addTimer() {
-        print("Add Timer Tapped")
+        if !viewModel.tasks.isEmpty {
+            print("Add Timer Tapped")
+        }
     }
     
     func showSettings() {
