@@ -55,6 +55,12 @@ struct TaskObject: Codable, Hashable, Identifiable {
         self.timers = timers
     }
     
+    mutating func edit(name: String? = nil, timeGoal: Double? = nil) {
+        self.name = name ?? self.name
+        self.timeGoal = timeGoal ?? self.timeGoal
+        self.update()
+    }
+    
     mutating func fetchTimers() async {
         do {
             let sow = Date().startOfWeek.timeIntervalSince1970
@@ -97,6 +103,11 @@ struct TaskObject: Codable, Hashable, Identifiable {
             timer.updateFirebase()
             self.timers.append(timer)
         }
+    }
+    
+    private func update() {
+        let service = FirebaseFirestoreService()
+        service.update(task: self)
     }
     
 }

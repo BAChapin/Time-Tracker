@@ -22,7 +22,9 @@ class MainViewModel: ObservableObject {
     }
     
     func add(_ task: TaskObject) {
+        tasks.append(task)
         service.add(task: task)
+        self.navigateTo(task: task)
     }
     
     func add(timer: TimeObject) {
@@ -35,10 +37,12 @@ class MainViewModel: ObservableObject {
             switch changeType {
             case .added:
                 var newTask = task
-                Task {
-                    await newTask.fetchTimers()
-                    self.tasks.append(newTask)
-                    self.tasks.sort { $0.created < $1.created }
+                if !self.tasks.contains(where: { $0.id == newTask.id }) {
+                    Task {
+                        await newTask.fetchTimers()
+                        self.tasks.append(newTask)
+                        self.tasks.sort { $0.created < $1.created }
+                    }
                 }
             case .modified:
                 print("Modified", task.name)
