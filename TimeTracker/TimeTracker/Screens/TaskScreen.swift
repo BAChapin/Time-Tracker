@@ -11,6 +11,7 @@ struct TaskScreen: View {
     
     @Binding var task: TaskObject
     @State var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    @State var displayTaskEdit: Bool = false
     
     var body: some View {
         VStack {
@@ -37,6 +38,13 @@ struct TaskScreen: View {
             }
         }
         .padding(.top)
+//        .sheet(isPresented: $displayTaskEdit, content: {
+//            AddTaskScreen(userId: environment.userId!) { task in
+//                viewModel.add(task)
+//                viewModel.displayAddTaskSheet.toggle()
+//            }
+//            .presentationDetents([.medium])
+//        })
         .onDisappear {
             timer.upstream.connect().cancel()
         }
