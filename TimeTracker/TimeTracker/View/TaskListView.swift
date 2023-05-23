@@ -10,7 +10,6 @@ import SwiftUI
 struct TaskListView: View {
     
     @StateObject var viewModel: MainViewModel
-    @Binding var editTask: TaskObject?
     
     var body: some View {
         List($viewModel.tasks) { task in
@@ -19,7 +18,7 @@ struct TaskListView: View {
             }
             .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                 Button {
-                    _editTask = task
+                    viewModel.beginEdit(task: task.wrappedValue)
                 } label: {
                     Text("Edit")
                         .font(.headline)
@@ -32,9 +31,5 @@ struct TaskListView: View {
             TaskScreen(task: $viewModel.tasks[i])
         }
         .listStyle(.plain)
-    }
-    
-    private mutating func beginEdit(task: Binding<TaskObject>) {
-        _editTask = task
     }
 }
