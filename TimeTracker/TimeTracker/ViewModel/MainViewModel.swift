@@ -13,7 +13,12 @@ class MainViewModel: ObservableObject {
     @Published var navPath = NavigationPath()
     @Published var tasks: [TaskObject] = []
     @Published var displayAddTaskSheet: Bool = false
+    @Published var editIndex: Int? = nil
     private let service = FirebaseFirestoreService()
+    
+    subscript(task: TaskObject) -> Int? {
+        return tasks.firstIndex(of: task)
+    }
     
     func navigateTo(task: TaskObject) {
         if let index = tasks.firstIndex(of: task) {
@@ -31,6 +36,11 @@ class MainViewModel: ObservableObject {
         service.add(timer: timer)
     }
     
+    func beginEdit(task: TaskObject) {
+        let value = self[task]
+        editIndex = value
+    }
+    
     @MainActor
     func fetchTasks(for userId: String) async {
         service.fetchTasks(for: userId) { changeType, task in
@@ -45,6 +55,10 @@ class MainViewModel: ObservableObject {
                     }
                 }
             case .modified:
+                var modifiedTask = task
+                if let index = self.tasks.firstIndex(where: { $0.id == modifiedTask.id }) {
+                    self.tasks[index] = modifiedTask
+                }
                 print("Modified", task.name)
             case .removed:
                 print("Removed", task.name)
