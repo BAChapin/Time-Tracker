@@ -57,7 +57,8 @@ class MainViewModel: ObservableObject {
             case .modified:
                 var modifiedTask = task
                 if let index = self.tasks.firstIndex(where: { $0.id == modifiedTask.id }) {
-                    self.tasks[index] = modifiedTask
+                    self.tasks[index].name = modifiedTask.name
+                    self.tasks[index].timeGoal = modifiedTask.timeGoal
                 }
                 print("Modified", task.name)
             case .removed:
