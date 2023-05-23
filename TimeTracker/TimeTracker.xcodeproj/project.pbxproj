@@ -26,6 +26,7 @@
 		7437E1642918A943002B1573 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E1632918A943002B1573 /* LoginScreen.swift */; };
 		7437E1672918AD2F002B1573 /* RoundedBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E1662918AD2F002B1573 /* RoundedBorderModifier.swift */; };
 		7437E1692918AD64002B1573 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E1682918AD64002B1573 /* ViewExtension.swift */; };
+		743A0F3F2A1CFE1E00A405F2 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A0F3E2A1CFE1E00A405F2 /* IntExtension.swift */; };
 		7464956A2925D35B00A12B39 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746495692925D35B00A12B39 /* GoalProgressView.swift */; };
 		748C97B92921C295000A0860 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97B82921C295000A0860 /* TaskListView.swift */; };
 		748C97BB2921C347000A0860 /* TaskCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97BA2921C347000A0860 /* TaskCellView.swift */; };
@@ -83,6 +84,7 @@
 		7437E1632918A943002B1573 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		7437E1662918AD2F002B1573 /* RoundedBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderModifier.swift; sourceTree = "<group>"; };
 		7437E1682918AD64002B1573 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		743A0F3E2A1CFE1E00A405F2 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		746495692925D35B00A12B39 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
 		748C97B82921C295000A0860 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		748C97BA2921C347000A0860 /* TaskCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				7437E1682918AD64002B1573 /* ViewExtension.swift */,
 				74F262E32931ADC200439C47 /* TimeIntervalExtension.swift */,
 				74F262E52931B8F900439C47 /* DateExtension.swift */,
+				743A0F3E2A1CFE1E00A405F2 /* IntExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				748C97BD2921E184000A0860 /* MainModifier.swift in Sources */,
 				74BD7A5C291B460200544904 /* CreateAccountViewModel.swift in Sources */,
 				74C23F96293EA21A00F8BC9B /* CurrentTimerView.swift in Sources */,
+				743A0F3F2A1CFE1E00A405F2 /* IntExtension.swift in Sources */,
 				74BD7A58291B41C900544904 /* FirebaseFirestoreService.swift in Sources */,
 				749812A22919EED90014AE73 /* LoginViewModel.swift in Sources */,
 				7464956A2925D35B00A12B39 /* GoalProgressView.swift in Sources */,
