@@ -1,0 +1,843 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7401A839291E0363000FC598 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401A838291E0363000FC598 /* MainViewModel.swift */; };
+		7437E12129188D7F002B1573 /* TimeTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E12029188D7F002B1573 /* TimeTrackerApp.swift */; };
+		7437E12529188D80002B1573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7437E12429188D80002B1573 /* Assets.xcassets */; };
+		7437E12829188D80002B1573 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7437E12729188D80002B1573 /* Preview Assets.xcassets */; };
+		7437E13229188D80002B1573 /* TimeTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E13129188D80002B1573 /* TimeTrackerTests.swift */; };
+		7437E13C29188D80002B1573 /* TimeTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E13B29188D80002B1573 /* TimeTrackerUITests.swift */; };
+		7437E13E29188D80002B1573 /* TimeTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E13D29188D80002B1573 /* TimeTrackerUITestsLaunchTests.swift */; };
+		7437E15129189925002B1573 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E15029189925002B1573 /* MainScreen.swift */; };
+		7437E1542918A291002B1573 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7437E1532918A291002B1573 /* FirebaseAnalytics */; };
+		7437E1562918A291002B1573 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7437E1552918A291002B1573 /* FirebaseAnalyticsSwift */; };
+		7437E1582918A291002B1573 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7437E1572918A291002B1573 /* FirebaseAuth */; };
+		7437E15A2918A291002B1573 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7437E1592918A291002B1573 /* FirebaseAuthCombine-Community */; };
+		7437E15C2918A291002B1573 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7437E15B2918A291002B1573 /* FirebaseFirestore */; };
+		7437E15E2918A291002B1573 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7437E15D2918A291002B1573 /* FirebaseFirestoreCombine-Community */; };
+		7437E1602918A291002B1573 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7437E15F2918A291002B1573 /* FirebaseFirestoreSwift */; };
+		7437E1622918A68F002B1573 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7437E1612918A68F002B1573 /* GoogleService-Info.plist */; };
+		7437E1642918A943002B1573 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E1632918A943002B1573 /* LoginScreen.swift */; };
+		7437E1672918AD2F002B1573 /* RoundedBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E1662918AD2F002B1573 /* RoundedBorderModifier.swift */; };
+		7437E1692918AD64002B1573 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E1682918AD64002B1573 /* ViewExtension.swift */; };
+		7464956A2925D35B00A12B39 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746495692925D35B00A12B39 /* GoalProgressView.swift */; };
+		748C97B92921C295000A0860 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97B82921C295000A0860 /* TaskListView.swift */; };
+		748C97BB2921C347000A0860 /* TaskCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97BA2921C347000A0860 /* TaskCellView.swift */; };
+		748C97BD2921E184000A0860 /* MainModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97BC2921E184000A0860 /* MainModifier.swift */; };
+		748C97BF2921F130000A0860 /* AddTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97BE2921F130000A0860 /* AddTaskScreen.swift */; };
+		748C97C329253822000A0860 /* TaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97C229253822000A0860 /* TaskScreen.swift */; };
+		749812A02919EAC10014AE73 /* TimeEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498129F2919EAC10014AE73 /* TimeEnvironment.swift */; };
+		749812A22919EED90014AE73 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749812A12919EED90014AE73 /* LoginViewModel.swift */; };
+		74A46B85291FDF4F0041AC79 /* NoTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A46B84291FDF4E0041AC79 /* NoTasksView.swift */; };
+		74A46B87291FE3630041AC79 /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A46B86291FE3630041AC79 /* TaskObject.swift */; };
+		74AD834E2925F28200FBF48C /* SemiCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD834D2925F28200FBF48C /* SemiCircleProgressView.swift */; };
+		74AD83512925F55D00FBF48C /* TaskStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD83502925F55D00FBF48C /* TaskStatsView.swift */; };
+		74AD8353292AFC3700FBF48C /* TimeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD8352292AFC3700FBF48C /* TimeObject.swift */; };
+		74BD7A56291B16D000544904 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BD7A55291B16D000544904 /* FirebaseAuthService.swift */; };
+		74BD7A58291B41C900544904 /* FirebaseFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BD7A57291B41C900544904 /* FirebaseFirestoreService.swift */; };
+		74BD7A5A291B45C900544904 /* CreateAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BD7A59291B45C900544904 /* CreateAccountScreen.swift */; };
+		74BD7A5C291B460200544904 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BD7A5B291B460200544904 /* CreateAccountViewModel.swift */; };
+		74C23F96293EA21A00F8BC9B /* CurrentTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C23F95293EA21A00F8BC9B /* CurrentTimerView.swift */; };
+		74CEC6D42960D08E00D4DE03 /* TimerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CEC6D32960D08E00D4DE03 /* TimerCellView.swift */; };
+		74F262E22931A3B400439C47 /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F262E12931A3B400439C47 /* TimeEntry.swift */; };
+		74F262E42931ADC200439C47 /* TimeIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F262E32931ADC200439C47 /* TimeIntervalExtension.swift */; };
+		74F262E62931B8F900439C47 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F262E52931B8F900439C47 /* DateExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7437E12E29188D80002B1573 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7437E11529188D7F002B1573 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7437E11C29188D7F002B1573;
+			remoteInfo = TimeTracker;
+		};
+		7437E13829188D80002B1573 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7437E11529188D7F002B1573 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7437E11C29188D7F002B1573;
+			remoteInfo = TimeTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7401A838291E0363000FC598 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		7437E11D29188D7F002B1573 /* TimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7437E12029188D7F002B1573 /* TimeTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackerApp.swift; sourceTree = "<group>"; };
+		7437E12429188D80002B1573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7437E12729188D80002B1573 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7437E12D29188D80002B1573 /* TimeTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7437E13129188D80002B1573 /* TimeTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackerTests.swift; sourceTree = "<group>"; };
+		7437E13729188D80002B1573 /* TimeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7437E13B29188D80002B1573 /* TimeTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackerUITests.swift; sourceTree = "<group>"; };
+		7437E13D29188D80002B1573 /* TimeTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7437E15029189925002B1573 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		7437E1612918A68F002B1573 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7437E1632918A943002B1573 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		7437E1662918AD2F002B1573 /* RoundedBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderModifier.swift; sourceTree = "<group>"; };
+		7437E1682918AD64002B1573 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		746495692925D35B00A12B39 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
+		748C97B82921C295000A0860 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		748C97BA2921C347000A0860 /* TaskCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellView.swift; sourceTree = "<group>"; };
+		748C97BC2921E184000A0860 /* MainModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModifier.swift; sourceTree = "<group>"; };
+		748C97BE2921F130000A0860 /* AddTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScreen.swift; sourceTree = "<group>"; };
+		748C97C229253822000A0860 /* TaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskScreen.swift; sourceTree = "<group>"; };
+		7498129F2919EAC10014AE73 /* TimeEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEnvironment.swift; sourceTree = "<group>"; };
+		749812A12919EED90014AE73 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		74A46B84291FDF4E0041AC79 /* NoTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTasksView.swift; sourceTree = "<group>"; };
+		74A46B86291FE3630041AC79 /* TaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
+		74AD834D2925F28200FBF48C /* SemiCircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiCircleProgressView.swift; sourceTree = "<group>"; };
+		74AD83502925F55D00FBF48C /* TaskStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatsView.swift; sourceTree = "<group>"; };
+		74AD8352292AFC3700FBF48C /* TimeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeObject.swift; sourceTree = "<group>"; };
+		74BD7A55291B16D000544904 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
+		74BD7A57291B41C900544904 /* FirebaseFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreService.swift; sourceTree = "<group>"; };
+		74BD7A59291B45C900544904 /* CreateAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreen.swift; sourceTree = "<group>"; };
+		74BD7A5B291B460200544904 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		74C23F95293EA21A00F8BC9B /* CurrentTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimerView.swift; sourceTree = "<group>"; };
+		74CEC6D32960D08E00D4DE03 /* TimerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCellView.swift; sourceTree = "<group>"; };
+		74F262E12931A3B400439C47 /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
+		74F262E32931ADC200439C47 /* TimeIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtension.swift; sourceTree = "<group>"; };
+		74F262E52931B8F900439C47 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7437E11A29188D7F002B1573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7437E1562918A291002B1573 /* FirebaseAnalyticsSwift in Frameworks */,
+				7437E1582918A291002B1573 /* FirebaseAuth in Frameworks */,
+				7437E1542918A291002B1573 /* FirebaseAnalytics in Frameworks */,
+				7437E1602918A291002B1573 /* FirebaseFirestoreSwift in Frameworks */,
+				7437E15E2918A291002B1573 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				7437E15C2918A291002B1573 /* FirebaseFirestore in Frameworks */,
+				7437E15A2918A291002B1573 /* FirebaseAuthCombine-Community in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7437E12A29188D80002B1573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7437E13429188D80002B1573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7437E11429188D7F002B1573 = {
+			isa = PBXGroup;
+			children = (
+				7437E11F29188D7F002B1573 /* TimeTracker */,
+				7437E13029188D80002B1573 /* TimeTrackerTests */,
+				7437E13A29188D80002B1573 /* TimeTrackerUITests */,
+				7437E11E29188D7F002B1573 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7437E11E29188D7F002B1573 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7437E11D29188D7F002B1573 /* TimeTracker.app */,
+				7437E12D29188D80002B1573 /* TimeTrackerTests.xctest */,
+				7437E13729188D80002B1573 /* TimeTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7437E11F29188D7F002B1573 /* TimeTracker */ = {
+			isa = PBXGroup;
+			children = (
+				7437E14D29188F92002B1573 /* Extensions */,
+				7437E1652918ACDB002B1573 /* ViewModifiers */,
+				7437E14F29188FBA002B1573 /* Services */,
+				7437E14A29188F6B002B1573 /* Model */,
+				7437E14B29188F74002B1573 /* ViewModel */,
+				7437E14C29188F7D002B1573 /* View */,
+				7437E14E29188FB3002B1573 /* Screens */,
+				7437E12029188D7F002B1573 /* TimeTrackerApp.swift */,
+				7437E1612918A68F002B1573 /* GoogleService-Info.plist */,
+				7437E12429188D80002B1573 /* Assets.xcassets */,
+				7437E12629188D80002B1573 /* Preview Content */,
+			);
+			path = TimeTracker;
+			sourceTree = "<group>";
+		};
+		7437E12629188D80002B1573 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7437E12729188D80002B1573 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7437E13029188D80002B1573 /* TimeTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7437E13129188D80002B1573 /* TimeTrackerTests.swift */,
+			);
+			path = TimeTrackerTests;
+			sourceTree = "<group>";
+		};
+		7437E13A29188D80002B1573 /* TimeTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7437E13B29188D80002B1573 /* TimeTrackerUITests.swift */,
+				7437E13D29188D80002B1573 /* TimeTrackerUITestsLaunchTests.swift */,
+			);
+			path = TimeTrackerUITests;
+			sourceTree = "<group>";
+		};
+		7437E14A29188F6B002B1573 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74A46B86291FE3630041AC79 /* TaskObject.swift */,
+				74AD8352292AFC3700FBF48C /* TimeObject.swift */,
+				74F262E12931A3B400439C47 /* TimeEntry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7437E14B29188F74002B1573 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7498129F2919EAC10014AE73 /* TimeEnvironment.swift */,
+				749812A12919EED90014AE73 /* LoginViewModel.swift */,
+				74BD7A5B291B460200544904 /* CreateAccountViewModel.swift */,
+				7401A838291E0363000FC598 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7437E14C29188F7D002B1573 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74AD834F2925F41E00FBF48C /* TaskScreen */,
+				74A46B84291FDF4E0041AC79 /* NoTasksView.swift */,
+				748C97B82921C295000A0860 /* TaskListView.swift */,
+				748C97BA2921C347000A0860 /* TaskCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7437E14D29188F92002B1573 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7437E1682918AD64002B1573 /* ViewExtension.swift */,
+				74F262E32931ADC200439C47 /* TimeIntervalExtension.swift */,
+				74F262E52931B8F900439C47 /* DateExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7437E14E29188FB3002B1573 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				7437E15029189925002B1573 /* MainScreen.swift */,
+				7437E1632918A943002B1573 /* LoginScreen.swift */,
+				74BD7A59291B45C900544904 /* CreateAccountScreen.swift */,
+				748C97BE2921F130000A0860 /* AddTaskScreen.swift */,
+				748C97C229253822000A0860 /* TaskScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		7437E14F29188FBA002B1573 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				74BD7A55291B16D000544904 /* FirebaseAuthService.swift */,
+				74BD7A57291B41C900544904 /* FirebaseFirestoreService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7437E1652918ACDB002B1573 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				7437E1662918AD2F002B1573 /* RoundedBorderModifier.swift */,
+				748C97BC2921E184000A0860 /* MainModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		74AD834F2925F41E00FBF48C /* TaskScreen */ = {
+			isa = PBXGroup;
+			children = (
+				746495692925D35B00A12B39 /* GoalProgressView.swift */,
+				74AD834D2925F28200FBF48C /* SemiCircleProgressView.swift */,
+				74AD83502925F55D00FBF48C /* TaskStatsView.swift */,
+				74C23F95293EA21A00F8BC9B /* CurrentTimerView.swift */,
+				74CEC6D32960D08E00D4DE03 /* TimerCellView.swift */,
+			);
+			path = TaskScreen;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7437E11C29188D7F002B1573 /* TimeTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7437E14129188D80002B1573 /* Build configuration list for PBXNativeTarget "TimeTracker" */;
+			buildPhases = (
+				7437E11929188D7F002B1573 /* Sources */,
+				7437E11A29188D7F002B1573 /* Frameworks */,
+				7437E11B29188D7F002B1573 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeTracker;
+			packageProductDependencies = (
+				7437E1532918A291002B1573 /* FirebaseAnalytics */,
+				7437E1552918A291002B1573 /* FirebaseAnalyticsSwift */,
+				7437E1572918A291002B1573 /* FirebaseAuth */,
+				7437E1592918A291002B1573 /* FirebaseAuthCombine-Community */,
+				7437E15B2918A291002B1573 /* FirebaseFirestore */,
+				7437E15D2918A291002B1573 /* FirebaseFirestoreCombine-Community */,
+				7437E15F2918A291002B1573 /* FirebaseFirestoreSwift */,
+			);
+			productName = TimeTracker;
+			productReference = 7437E11D29188D7F002B1573 /* TimeTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7437E12C29188D80002B1573 /* TimeTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7437E14429188D80002B1573 /* Build configuration list for PBXNativeTarget "TimeTrackerTests" */;
+			buildPhases = (
+				7437E12929188D80002B1573 /* Sources */,
+				7437E12A29188D80002B1573 /* Frameworks */,
+				7437E12B29188D80002B1573 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7437E12F29188D80002B1573 /* PBXTargetDependency */,
+			);
+			name = TimeTrackerTests;
+			productName = TimeTrackerTests;
+			productReference = 7437E12D29188D80002B1573 /* TimeTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7437E13629188D80002B1573 /* TimeTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7437E14729188D80002B1573 /* Build configuration list for PBXNativeTarget "TimeTrackerUITests" */;
+			buildPhases = (
+				7437E13329188D80002B1573 /* Sources */,
+				7437E13429188D80002B1573 /* Frameworks */,
+				7437E13529188D80002B1573 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7437E13929188D80002B1573 /* PBXTargetDependency */,
+			);
+			name = TimeTrackerUITests;
+			productName = TimeTrackerUITests;
+			productReference = 7437E13729188D80002B1573 /* TimeTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7437E11529188D7F002B1573 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					7437E11C29188D7F002B1573 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					7437E12C29188D80002B1573 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 7437E11C29188D7F002B1573;
+					};
+					7437E13629188D80002B1573 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 7437E11C29188D7F002B1573;
+					};
+				};
+			};
+			buildConfigurationList = 7437E11829188D7F002B1573 /* Build configuration list for PBXProject "TimeTracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7437E11429188D7F002B1573;
+			packageReferences = (
+				7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 7437E11E29188D7F002B1573 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7437E11C29188D7F002B1573 /* TimeTracker */,
+				7437E12C29188D80002B1573 /* TimeTrackerTests */,
+				7437E13629188D80002B1573 /* TimeTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7437E11B29188D7F002B1573 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7437E12829188D80002B1573 /* Preview Assets.xcassets in Resources */,
+				7437E12529188D80002B1573 /* Assets.xcassets in Resources */,
+				7437E1622918A68F002B1573 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7437E12B29188D80002B1573 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7437E13529188D80002B1573 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7437E11929188D7F002B1573 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74F262E22931A3B400439C47 /* TimeEntry.swift in Sources */,
+				74F262E42931ADC200439C47 /* TimeIntervalExtension.swift in Sources */,
+				74BD7A56291B16D000544904 /* FirebaseAuthService.swift in Sources */,
+				7437E15129189925002B1573 /* MainScreen.swift in Sources */,
+				7437E1672918AD2F002B1573 /* RoundedBorderModifier.swift in Sources */,
+				74F262E62931B8F900439C47 /* DateExtension.swift in Sources */,
+				749812A02919EAC10014AE73 /* TimeEnvironment.swift in Sources */,
+				7437E12129188D7F002B1573 /* TimeTrackerApp.swift in Sources */,
+				7437E1642918A943002B1573 /* LoginScreen.swift in Sources */,
+				748C97B92921C295000A0860 /* TaskListView.swift in Sources */,
+				7437E1692918AD64002B1573 /* ViewExtension.swift in Sources */,
+				748C97BD2921E184000A0860 /* MainModifier.swift in Sources */,
+				74BD7A5C291B460200544904 /* CreateAccountViewModel.swift in Sources */,
+				74C23F96293EA21A00F8BC9B /* CurrentTimerView.swift in Sources */,
+				74BD7A58291B41C900544904 /* FirebaseFirestoreService.swift in Sources */,
+				749812A22919EED90014AE73 /* LoginViewModel.swift in Sources */,
+				7464956A2925D35B00A12B39 /* GoalProgressView.swift in Sources */,
+				748C97BF2921F130000A0860 /* AddTaskScreen.swift in Sources */,
+				748C97BB2921C347000A0860 /* TaskCellView.swift in Sources */,
+				74BD7A5A291B45C900544904 /* CreateAccountScreen.swift in Sources */,
+				74A46B85291FDF4F0041AC79 /* NoTasksView.swift in Sources */,
+				74A46B87291FE3630041AC79 /* TaskObject.swift in Sources */,
+				74CEC6D42960D08E00D4DE03 /* TimerCellView.swift in Sources */,
+				748C97C329253822000A0860 /* TaskScreen.swift in Sources */,
+				7401A839291E0363000FC598 /* MainViewModel.swift in Sources */,
+				74AD83512925F55D00FBF48C /* TaskStatsView.swift in Sources */,
+				74AD834E2925F28200FBF48C /* SemiCircleProgressView.swift in Sources */,
+				74AD8353292AFC3700FBF48C /* TimeObject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7437E12929188D80002B1573 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7437E13229188D80002B1573 /* TimeTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7437E13329188D80002B1573 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7437E13E29188D80002B1573 /* TimeTrackerUITestsLaunchTests.swift in Sources */,
+				7437E13C29188D80002B1573 /* TimeTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7437E12F29188D80002B1573 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7437E11C29188D7F002B1573 /* TimeTracker */;
+			targetProxy = 7437E12E29188D80002B1573 /* PBXContainerItemProxy */;
+		};
+		7437E13929188D80002B1573 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7437E11C29188D7F002B1573 /* TimeTracker */;
+			targetProxy = 7437E13829188D80002B1573 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7437E13F29188D80002B1573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7437E14029188D80002B1573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7437E14229188D80002B1573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TimeTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 6U666T5AU4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MIETech.TimeTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7437E14329188D80002B1573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TimeTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 6U666T5AU4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MIETech.TimeTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7437E14529188D80002B1573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6U666T5AU4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MIETech.TimeTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TimeTracker";
+			};
+			name = Debug;
+		};
+		7437E14629188D80002B1573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6U666T5AU4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MIETech.TimeTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TimeTracker";
+			};
+			name = Release;
+		};
+		7437E14829188D80002B1573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6U666T5AU4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MIETech.TimeTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TimeTracker;
+			};
+			name = Debug;
+		};
+		7437E14929188D80002B1573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6U666T5AU4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MIETech.TimeTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TimeTracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7437E11829188D7F002B1573 /* Build configuration list for PBXProject "TimeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7437E13F29188D80002B1573 /* Debug */,
+				7437E14029188D80002B1573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7437E14129188D80002B1573 /* Build configuration list for PBXNativeTarget "TimeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7437E14229188D80002B1573 /* Debug */,
+				7437E14329188D80002B1573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7437E14429188D80002B1573 /* Build configuration list for PBXNativeTarget "TimeTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7437E14529188D80002B1573 /* Debug */,
+				7437E14629188D80002B1573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7437E14729188D80002B1573 /* Build configuration list for PBXNativeTarget "TimeTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7437E14829188D80002B1573 /* Debug */,
+				7437E14929188D80002B1573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7437E1532918A291002B1573 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		7437E1552918A291002B1573 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		7437E1572918A291002B1573 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7437E1592918A291002B1573 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		7437E15B2918A291002B1573 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7437E15D2918A291002B1573 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		7437E15F2918A291002B1573 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7437E1522918A291002B1573 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 7437E11529188D7F002B1573 /* Project object */;
+}
