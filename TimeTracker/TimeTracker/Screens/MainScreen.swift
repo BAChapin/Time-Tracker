@@ -11,7 +11,6 @@ struct MainScreen: View {
     
     @EnvironmentObject var environment: TimeEnvironment
     @ObservedObject var viewModel = MainViewModel()
-    @State var editTask: TaskObject? = nil
     
     var body: some View {
         NavigationStack(path: $viewModel.navPath) {
@@ -19,7 +18,7 @@ struct MainScreen: View {
                 NoTasksView()
                     .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             } else {
-                TaskListView(viewModel: viewModel, editTask: $editTask)
+                TaskListView(viewModel: viewModel)
                     .mainNavBarAccessories(showAddTimerOption: !viewModel.tasks.isEmpty, addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             }
 
@@ -37,10 +36,12 @@ struct MainScreen: View {
             }
             .presentationDetents([.medium])
         }
-        .sheet(item: $editTask) { task in
+        .sheet(item: $viewModel.editIndex) { index in
+            let editTask = viewModel.tasks[index]
             AddTaskScreen(userId: environment.userId!, uploadTask: { task in
-                viewModel.editTask = nil
-            }, editTask: task)
+                viewModel.editIndex = nil
+            }, editTask: editTask)
+            .presentationDetents([.medium])
         }
     }
     
