@@ -26,7 +26,7 @@ struct TaskCellView: View {
             }
         }
         .padding(.vertical)
-        .background(task.isActive ? Color.blue.opacity(0.3) : Color.gray.opacity(0.3))
+        .background(task.cellColor)
         .cornerRadius(10)
     }
 }

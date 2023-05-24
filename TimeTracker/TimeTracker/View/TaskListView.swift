@@ -16,6 +16,15 @@ struct TaskListView: View {
             TaskCellView(task: task) { task in
                 viewModel.navigateTo(task: task)
             }
+            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                Button {
+                    viewModel.beginEdit(task: task.wrappedValue)
+                } label: {
+                    Text("Edit")
+                        .font(.headline)
+                }
+                .tint(.blue)
+            }
             .listRowSeparator(.hidden)
         }
         .navigationDestination(for: Int.self) { i in

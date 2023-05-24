@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import FirebaseFirestoreSwift
 
 struct TaskObject: Codable, Hashable, Identifiable {
@@ -37,6 +38,9 @@ struct TaskObject: Codable, Hashable, Identifiable {
     var todayTimer: TimeObject? {
         return timers.first(where: { $0.date >= Date.startOfDay().timeIntervalSince1970 })
     }
+    var cellColor: Color {
+        return isActive ? Color.blue.opacity(0.3) : (weekProgress.inHours >= timeGoal ?? 0) ? Color.green.opacity(0.3) : Color.gray.opacity(0.3)
+    }
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -53,6 +57,12 @@ struct TaskObject: Codable, Hashable, Identifiable {
         self.name = name
         self.timeGoal = timeGoal
         self.timers = timers
+    }
+    
+    mutating func edit(name: String? = nil, timeGoal: Double? = nil) {
+        self.name = name ?? self.name
+        self.timeGoal = timeGoal ?? self.timeGoal
+        self.update()
     }
     
     mutating func fetchTimers() async {
@@ -97,6 +107,11 @@ struct TaskObject: Codable, Hashable, Identifiable {
             timer.updateFirebase()
             self.timers.append(timer)
         }
+    }
+    
+    private func update() {
+        let service = FirebaseFirestoreService()
+        service.update(task: self)
     }
     
 }
