@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import FirebaseFirestoreSwift
 
 struct TaskObject: Codable, Hashable, Identifiable {
@@ -36,6 +37,9 @@ struct TaskObject: Codable, Hashable, Identifiable {
     }
     var todayTimer: TimeObject? {
         return timers.first(where: { $0.date >= Date.startOfDay().timeIntervalSince1970 })
+    }
+    var cellColor: Color {
+        return isActive ? Color.blue.opacity(0.3) : (weekProgress.inHours >= timeGoal ?? 0) ? Color.green.opacity(0.3) : Color.gray.opacity(0.3)
     }
     
     enum CodingKeys: String, CodingKey {

@@ -27,6 +27,7 @@
 		7437E1672918AD2F002B1573 /* RoundedBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E1662918AD2F002B1573 /* RoundedBorderModifier.swift */; };
 		7437E1692918AD64002B1573 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437E1682918AD64002B1573 /* ViewExtension.swift */; };
 		743A0F3F2A1CFE1E00A405F2 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A0F3E2A1CFE1E00A405F2 /* IntExtension.swift */; };
+		743A0F412A1D3DAA00A405F2 /* AddTimerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A0F402A1D3DAA00A405F2 /* AddTimerScreen.swift */; };
 		7464956A2925D35B00A12B39 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746495692925D35B00A12B39 /* GoalProgressView.swift */; };
 		748C97B92921C295000A0860 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97B82921C295000A0860 /* TaskListView.swift */; };
 		748C97BB2921C347000A0860 /* TaskCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C97BA2921C347000A0860 /* TaskCellView.swift */; };
@@ -85,6 +86,7 @@
 		7437E1662918AD2F002B1573 /* RoundedBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderModifier.swift; sourceTree = "<group>"; };
 		7437E1682918AD64002B1573 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		743A0F3E2A1CFE1E00A405F2 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		743A0F402A1D3DAA00A405F2 /* AddTimerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimerScreen.swift; sourceTree = "<group>"; };
 		746495692925D35B00A12B39 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
 		748C97B82921C295000A0860 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		748C97BA2921C347000A0860 /* TaskCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				74BD7A59291B45C900544904 /* CreateAccountScreen.swift */,
 				748C97BE2921F130000A0860 /* AddTaskScreen.swift */,
 				748C97C229253822000A0860 /* TaskScreen.swift */,
+				743A0F402A1D3DAA00A405F2 /* AddTimerScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				7437E1672918AD2F002B1573 /* RoundedBorderModifier.swift in Sources */,
 				74F262E62931B8F900439C47 /* DateExtension.swift in Sources */,
 				749812A02919EAC10014AE73 /* TimeEnvironment.swift in Sources */,
+				743A0F412A1D3DAA00A405F2 /* AddTimerScreen.swift in Sources */,
 				7437E12129188D7F002B1573 /* TimeTrackerApp.swift in Sources */,
 				7437E1642918A943002B1573 /* LoginScreen.swift in Sources */,
 				748C97B92921C295000A0860 /* TaskListView.swift in Sources */,
