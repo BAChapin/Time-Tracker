@@ -15,13 +15,6 @@ struct AddTaskScreen: View {
     @State var name: String = ""
     @State var goal: String = ""
     
-//    init(userId: String, edit task: TaskObject?, uploadTask: (TaskObject) -> Void) {
-//        self.userId = userId
-//        self.name = task?.name ?? ""
-//        self.goal = task
-//        self.uploadTask = uploadTask
-//    }
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             
