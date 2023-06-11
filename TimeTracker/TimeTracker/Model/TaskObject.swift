@@ -65,6 +65,35 @@ struct TaskObject: Codable, Hashable, Identifiable {
         self.update()
     }
     
+    mutating func addTimer(startTime: TimeInterval, endTime: TimeInterval?) {
+        if let endTime, let id {
+            if let lastTimer = timers.last {
+                guard let firstEntry = lastTimer.entries.first, let lastEntry = lastTimer.entries.last else { return }
+                if startTime < firstEntry.startTime && endTime > lastEntry.endTime ?? lastEntry.startTime {
+                    // Throw Error
+                }
+            }
+            
+            let timers = TimeObject.generateTimers(from: Date(timeIntervalSince1970: startTime), to: Date(timeIntervalSince1970: endTime), for: id)
+            for timer in timers {
+                self.timers.append(timer)
+                timer.updateFirebase()
+            }
+            self.timers.sort(by: { $0.date < $1.date })
+        } else {
+            if let todayTimer {
+                if !todayTimer.isActive, let index = timers.firstIndex(of: todayTimer) {
+                    timers[index].start(at: startTime)
+                    timers[index].updateFirebase()
+                }
+            } else if let id {
+                let timer = TimeObject(taskId: id, date: Date(timeIntervalSince1970: startTime))
+                timer.updateFirebase()
+                self.timers.append(timer)
+            }
+        }
+    }
+    
     mutating func fetchTimers() async {
         do {
             let sow = Date().startOfWeek.timeIntervalSince1970
@@ -95,6 +124,7 @@ struct TaskObject: Codable, Hashable, Identifiable {
             let service = FirebaseFirestoreService()
             service.add(timers: [timers[index!]] + newTimers)
             self.timers.append(contentsOf: newTimers)
+            self.timers.sort(by: { $0.date < $1.date })
         }
     }
     
