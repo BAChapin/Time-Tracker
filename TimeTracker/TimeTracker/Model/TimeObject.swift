@@ -15,12 +15,16 @@ struct TimeObject: Codable, Hashable, Identifiable {
     var date: TimeInterval = Date().timeIntervalSince1970
     var entries: [TimeEntry]
     
-    init(taskId: String, date: Date = Date()) {
+    init(taskId: String, date: TimeInterval = Date().timeIntervalSince1970) {
         self.id = UUID().uuidString
         self.taskId = taskId
-        self.date = date.startOfDay.timeIntervalSince1970
-        let entry = TimeEntry(startTime: date.timeIntervalSince1970)
+        self.date = date
+        let entry = TimeEntry(startTime: date)
         self.entries = [entry]
+    }
+    
+    init(taskId: String, date: Date) {
+        self.init(taskId: taskId, date: date.timeIntervalSince1970)
     }
     
     var totalTime: TimeInterval {
@@ -48,8 +52,8 @@ struct TimeObject: Codable, Hashable, Identifiable {
         }
     }
     
-    mutating func start() {
-        let entry = TimeEntry(startTime: Date().timeIntervalSince1970)
+    mutating func start(at time: TimeInterval? = nil) {
+        let entry = TimeEntry(startTime: time ?? Date().timeIntervalSince1970)
         entries.append(entry)
         updateFirebase()
     }
@@ -68,8 +72,18 @@ extension TimeObject {
         var returnTimers: [TimeObject] = []
         let range = Date.dateRange(from: d1, to: d2)
         for date in range {
-            var newTimer = TimeObject(taskId: taskId, date: date)
-            newTimer.stop(at: d2, true)
+            var newTimer: TimeObject
+            if date == range.first {
+                newTimer = TimeObject(taskId: taskId, date: d1.timeIntervalSince1970)
+            } else {
+                newTimer = TimeObject(taskId: taskId, date: date.timeIntervalSince1970)
+            }
+            
+            if date == range.last {
+                newTimer.stop(at: d2, true)
+            } else {
+                newTimer.stop(at: date.endOfDay, true)
+            }
             returnTimers.append(newTimer)
         }
         return returnTimers
