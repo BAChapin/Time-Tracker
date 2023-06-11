@@ -140,7 +140,6 @@ iOSInjectionProject/
 ### SwiftPackageManager ###
 Packages
 xcuserdata
-*.xcodeproj
 
 ### Firebase ###
 .idea

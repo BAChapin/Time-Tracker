@@ -12,6 +12,7 @@ struct MainModifier: ViewModifier {
     var title: String
     var showAddButton: Bool
     var showSettingsButton: Bool
+    var showAddTimerOption: Bool
     var addTaskAction: () -> Void
     var addTimerAction: () -> Void
     var settingsAction: () -> Void
@@ -29,7 +30,10 @@ struct MainModifier: ViewModifier {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Button("Add Task", action: addTaskAction)
-                        Button("Add Timer", action: addTimerAction)
+                        if showAddTimerOption {
+                            Button("Add Timer", action: addTimerAction)
+                            
+                        }
                     } label: {
                         Label("Add", systemImage: "plus")
                     }

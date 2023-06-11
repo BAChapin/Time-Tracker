@@ -19,7 +19,7 @@ struct MainScreen: View {
                     .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             } else {
                 TaskListView(viewModel: viewModel)
-                    .mainNavBarAccessories(addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
+                    .mainNavBarAccessories(showAddTimerOption: !viewModel.tasks.isEmpty, addTaskAction: addTask, addTimerAction: addTimer, settingsAction: showSettings)
             }
 
         }
@@ -36,6 +36,19 @@ struct MainScreen: View {
             }
             .presentationDetents([.medium])
         }
+        .sheet(item: $viewModel.editIndex) { index in
+            let editTask = viewModel.tasks[index]
+            AddTaskScreen(userId: environment.userId!, uploadTask: { task in
+                viewModel.editIndex = nil
+            }, editTask: editTask)
+            .presentationDetents([.medium])
+        }
+        .sheet(isPresented: $viewModel.displayAddTimerSheet) {
+            AddTimerScreen(tasks: $viewModel.tasks, selection: viewModel.tasks[0], addTimer: { task, startTime, endTime in
+                viewModel.add(timerTo: task, startTime: startTime, endTime: endTime)
+            })
+                .presentationDetents([.medium])
+        }
     }
     
     func addTask() {
@@ -43,7 +56,9 @@ struct MainScreen: View {
     }
     
     func addTimer() {
-        print("Add Timer Tapped")
+        if !viewModel.tasks.isEmpty {
+            viewModel.displayAddTimerSheet.toggle()
+        }
     }
     
     func showSettings() {

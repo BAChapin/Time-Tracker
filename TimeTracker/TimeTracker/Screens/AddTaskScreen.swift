@@ -11,6 +11,7 @@ struct AddTaskScreen: View {
     
     var userId: String
     var uploadTask: (TaskObject) -> Void
+    var editTask: TaskObject?
     @State var name: String = ""
     @State var goal: String = ""
     
@@ -49,8 +50,13 @@ struct AddTaskScreen: View {
                 Spacer()
                 
                 Button {
-                    let task = TaskObject(userId: self.userId, name: self.name, timeGoal: Double(self.goal))
-                    uploadTask(task)
+                    if var editTask {
+                        editTask.edit(name: self.name, timeGoal: Double(self.goal))
+                        uploadTask(editTask)
+                    } else {
+                        let task = TaskObject(userId: self.userId, name: self.name, timeGoal: Double(self.goal))
+                        uploadTask(task)
+                    }
                 } label: {
                     Text("Upload")
                         .frame(height: 30)
@@ -64,6 +70,14 @@ struct AddTaskScreen: View {
             
         }
         .padding(.horizontal)
+        .onAppear {
+            if let editTask {
+                name = editTask.name
+                if let goal = editTask.timeGoal {
+                    self.goal = String(goal)
+                }
+            }
+        }
         
         Spacer()
     }
