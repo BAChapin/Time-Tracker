@@ -43,6 +43,12 @@ struct MainScreen: View {
             }, editTask: editTask)
             .presentationDetents([.medium])
         }
+        .sheet(isPresented: $viewModel.displayAddTimerSheet) {
+            AddTimerScreen(tasks: $viewModel.tasks, selection: viewModel.tasks[0], addTimer: { task, startTime, endTime in
+                viewModel.add(timerTo: task, startTime: startTime, endTime: endTime)
+            })
+                .presentationDetents([.medium])
+        }
     }
     
     func addTask() {
@@ -51,7 +57,7 @@ struct MainScreen: View {
     
     func addTimer() {
         if !viewModel.tasks.isEmpty {
-            print("Add Timer Tapped")
+            viewModel.displayAddTimerSheet.toggle()
         }
     }
     

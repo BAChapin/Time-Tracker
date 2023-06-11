@@ -13,6 +13,7 @@ class MainViewModel: ObservableObject {
     @Published var navPath = NavigationPath()
     @Published var tasks: [TaskObject] = []
     @Published var displayAddTaskSheet: Bool = false
+    @Published var displayAddTimerSheet: Bool = false
     @Published var editIndex: Int? = nil
     private let service = FirebaseFirestoreService()
     
@@ -32,8 +33,10 @@ class MainViewModel: ObservableObject {
         self.navigateTo(task: task)
     }
     
-    func add(timer: TimeObject) {
-        service.add(timer: timer)
+    func add(timerTo task: TaskObject, startTime: TimeInterval, endTime: TimeInterval?) {
+        guard let index = tasks.firstIndex(of: task) else { return }
+        tasks[index].addTimer(startTime: startTime, endTime: endTime)
+        displayAddTimerSheet.toggle()
     }
     
     func beginEdit(task: TaskObject) {
@@ -55,7 +58,7 @@ class MainViewModel: ObservableObject {
                     }
                 }
             case .modified:
-                var modifiedTask = task
+                let modifiedTask = task
                 if let index = self.tasks.firstIndex(where: { $0.id == modifiedTask.id }) {
                     self.tasks[index].name = modifiedTask.name
                     self.tasks[index].timeGoal = modifiedTask.timeGoal
